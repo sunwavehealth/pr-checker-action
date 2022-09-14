@@ -1,0 +1,13 @@
+name: 'PR Checker'
+description: 'Checks PR to make sure they fit certain standards'
+inputs:
+  github-token:
+    description: 'GitHub Token (Needed to look at commits messages in Pull Request)'
+    required: true
+  commit-message-format:
+    description: 'Commit message format (RegEx)'
+    required: true
+    default: '^\[(([A-Z][A-Z0-9]+-[0-9]+)|(BUILD)|(TEST)|(CLEANUP))\][ ][a-zA-Z].*'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
